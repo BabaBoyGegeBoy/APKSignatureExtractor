@@ -4,11 +4,11 @@
 
 shell实现：
 从单个apk
-'''
+```
 unzip -p app.apk META-INF/CERT.RSA | openssl pkcs7 -inform DER -print_certs | openssl x509 -outform DER | xxd -p | tr -d '\n'
-'''
+```
 从脚本文件同目录下所有apk
-'''
+```
 #!/bin/bash
 # 批量提取 APK 签名字符串的脚本
 # 设置输出文件
@@ -35,7 +35,7 @@ find "$SEARCH_DIR" -maxdepth 1 -name "*.apk" -type f | while read apk_file; do
         fi
     done
 done
-'''
+```
 
 ![1](https://github.com/user-attachments/assets/7d1c98f8-95e1-4e00-9539-e4be06d274fb)
 ![2](https://github.com/user-attachments/assets/bc1ca629-ac47-4d95-82a4-6f52ba659cbb)
